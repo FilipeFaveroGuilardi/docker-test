@@ -3,6 +3,7 @@ package dev.fillipe.docker.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Getter
 @Entity
 @Table(name = "users")
 public class Todo {
@@ -10,7 +11,10 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     private String title;
+
+    @Setter
     private Boolean isCompleted;
 
     public Todo() {
@@ -24,26 +28,6 @@ public class Todo {
     public Todo(Long id, String title, Boolean isCompleted) {
         this.id = id;
         this.title = title;
-        this.isCompleted = isCompleted;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Boolean getCompleted() {
-        return isCompleted;
-    }
-
-    public void setCompleted(Boolean completed) {
-        isCompleted = completed;
+        this.isCompleted = false;
     }
 }
